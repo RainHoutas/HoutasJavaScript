@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="yuan">我是帅比</a>
+    
+    <script>
+        var a = prompt("第一个数");
+        var b = prompt("第二个数");
+        alert("和"+(Number(a)+Number(b))+"差"+(a-b)+"积"+(a*b)+"商"+(a/b));
+
+        var num = prompt("输入一个数字");
+        if(isNaN(num)){
+            alert("你的输入不满足要求！");
+        }
+        else if(num%2!=0){
+            alert("你输入的"+Number(num)+"是奇数");
+        }
+        else{
+            alert("你输入的"+Number(num)+"是偶数");
+        }
+
+        var chinese = prompt("语文几分");
+        var math = prompt("数学几分");
+        var english = prompt("英语几分");
+        alert("平均分="+((Number(chinese)+Number(math)+Number(english))/3));
+        
+        var r = prompt("圆的半径");
+        var i =document.getElementById("yuan");
+        i.innerText=("面积="+(3.14*r*r)+"周长="+(2*3.14*r));
+
+    </script>
+</body>
+</html>
