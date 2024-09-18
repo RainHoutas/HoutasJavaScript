@@ -11,9 +11,18 @@
     <script>
         var a = prompt("第一个数");
         var b = prompt("第二个数");
+        a=toString(a)&&Number(a);
+        if(isNaN(a)){
+            alert("你的输入不满足要求！");
+        }
+        b=toString(b)&&Number(b);
+        if(isNaN(b)){
+            alert("你的输入不满足要求！");
+        }
         alert("和"+(Number(a)+Number(b))+"差"+(a-b)+"积"+(a*b)+"商"+(a/b));
 
         var num = prompt("输入一个数字");
+        num=toString(num)&&Number(num);
         if(isNaN(num)){
             alert("你的输入不满足要求！");
         }
@@ -27,7 +36,23 @@
         var chinese = prompt("语文几分");
         var math = prompt("数学几分");
         var english = prompt("英语几分");
-        alert("平均分="+((Number(chinese)+Number(math)+Number(english))/3));
+        var aver = (Number(chinese)+Number(math)+Number(english))/3;
+
+        alert("平均分="+aver);
+        switch(true){
+            case 0<aver<50:
+                alert("差");
+                break;
+            case 50<=aver<100:
+                alert("普通");
+                break;
+            case aver>=100:
+                alert("好");
+                break;
+            default:
+                alert("未知");
+                break;
+        }
         
         var r = prompt("圆的半径");
         var i =document.getElementById("yuan");
