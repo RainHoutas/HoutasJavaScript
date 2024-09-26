@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩计算</title>
+    <script>
+        function calculateGrade() {
+            let totalScore = 0;
+            const subjects = 5;
+
+            for (let i = 1; i <= subjects; i++) {
+                let score = parseFloat(prompt(`请输入第${i}门课的成绩:`));
+                while (isNaN(score) || score < 0 || score > 100) {
+                    score = parseFloat(prompt(`无效输入，请重新输入第${i}门课的成绩 (0-100):`));
+                }
+                totalScore += score;
+            }
+
+            const averageScore = totalScore / subjects;
+            let grade;
+
+            if (averageScore >= 90) {
+                grade = 'A';
+            } else if (averageScore >= 80) {
+                grade = 'B';
+            } else if (averageScore >= 70) {
+                grade = 'C';
+            } else if (averageScore >= 60) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+
+            alert(`平均分: ${averageScore.toFixed(2)}\n等级: ${grade}`);
+        }
+
+        window.onload = calculateGrade;
+    </script>
+</head>
+<body>
+</body>
+</html>

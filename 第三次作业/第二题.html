@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打印金字塔</title>
+    <script>
+        function printPyramid(levels) {
+            for (let i = 1; i <= levels; i++) {
+                let spaces = ' '.repeat(levels - i);
+                let stars = '*'.repeat(2 * i - 1);
+                console.log(spaces + stars + spaces);
+            }
+        }
+
+        window.onload = function() {
+            const levels = parseInt(prompt('请输入金字塔的层数:'));
+            if (!isNaN(levels) && levels > 0) {
+                printPyramid(levels);
+            } else {
+                alert('请输入一个有效的正整数！');
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

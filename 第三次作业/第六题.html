@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输出素数</title>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function printPrimesInRange(start, end) {
+            let primes = [];
+            for (let i = start; i <= end; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            alert(`1000到1200之间的素数有: ${primes.join(', ')}`);
+        }
+
+        window.onload = function() {
+            printPrimesInRange(1000, 1200);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

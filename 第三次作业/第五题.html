@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算球的数量</title>
+    <script>
+        function calculateBalls() {
+            const redWhite = 25;
+            const whiteBlack = 31;
+            const redBlack = 28;
+
+            // 计算每种球的数量
+            const totalBalls = (redWhite + whiteBlack + redBlack) / 2;
+            const redBalls = totalBalls - whiteBlack;
+            const whiteBalls = totalBalls - redBlack;
+            const blackBalls = totalBalls - redWhite;
+
+            alert(`红球数量: ${redBalls}\n白球数量: ${whiteBalls}\n黑球数量: ${blackBalls}`);
+        }
+
+        window.onload = calculateBalls;
+    </script>
+</head>
+<body>
+</body>
+</html>
