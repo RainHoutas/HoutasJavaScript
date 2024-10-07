@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩计算</title>
+    <script>
+        function calculateScores() {
+            let scores = [];
+            const subjects = 5;
+
+            for (let i = 1; i <= subjects; i++) {
+                let score = parseFloat(prompt(`请输入第${i}门课的成绩:`));
+                while (isNaN(score) || score < 0 || score > 100) {
+                    score = parseFloat(prompt(`无效输入，请重新输入第${i}门课的成绩 (0-100):`));
+                }
+                scores.push(score);
+            }
+
+            const totalScore = scores.reduce((acc, curr) => acc + curr, 0);
+            const averageScore = totalScore / subjects;
+            const highestScore = Math.max(...scores);
+            const lowestScore = Math.min(...scores);
+
+            alert(`总分: ${totalScore}\n平均分: ${averageScore.toFixed(2)}\n最高分: ${highestScore}\n最低分: ${lowestScore}`);
+        }
+
+        window.onload = calculateScores;
+    </script>
+</head>
+<body>
+</body>
+</html>

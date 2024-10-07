@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组分割</title>
+    <script>
+        function splitArray() {
+            var numberList = [35, 23, 30, 40, 12, 18, 21, 15, 49, 8, 37, 10];
+            var lessThan30 = [];
+            var greaterThanOrEqual30 = [];
+
+            numberList.forEach(function(number) {
+                if (number < 30) {
+                    lessThan30.push(number);
+                } else {
+                    greaterThanOrEqual30.push(number);
+                }
+            });
+
+            console.log('小于30的子集:', lessThan30);
+            console.log('大于等于30的子集:', greaterThanOrEqual30);
+        }
+
+        window.onload = splitArray;
+    </script>
+</head>
+<body>
+</body>
+</html>
