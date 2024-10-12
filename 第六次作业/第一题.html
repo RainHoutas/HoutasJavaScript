@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .daohanglandanyuan {
+            width: 100px;
+            height: 50px;
+            background-color: #f0f0f0;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #000; /* 添加边框以便更容易看到 */
+        }
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    
+    <script>
+        var arr = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj'];
+        var res = ''; // 初始化为空字符串
+        var a = document.getElementById("a");
+        for (var i = 0; i < arr.length; i++) {
+            res += '<div class="daohanglandanyuan" style="float:left;">' + arr[i] + '</div>';
+        }
+        a.innerHTML = res;
+    </script>    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序示例</title>
+</head>
+<body>
+    <script>
+        // 定义数组
+        var numberList = [35, 23, 30, 40, 12, 18, 21, 15, 49, 8, 37, 10];
+
+        // 方法一：使用选择排序算法
+        function sortUsingSelectionSort(arr) {
+            let sortedArray = arr.slice();
+            for (let i = 0; i < sortedArray.length - 1; i++) {
+                let maxIndex = i;
+                for (let j = i + 1; j < sortedArray.length; j++) {
+                    if (sortedArray[j] > sortedArray[maxIndex]) {
+                        maxIndex = j;
+                    }
+                }
+                if (maxIndex !== i) {
+                    let temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[maxIndex];
+                    sortedArray[maxIndex] = temp;
+                }
+            }
+            return sortedArray;
+        }
+
+        // 方法二：使用冒泡排序算法
+        function sortUsingBubbleSort(arr) {
+            let sortedArray = arr.slice();
+            for (let i = 0; i < sortedArray.length - 1; i++) {
+                for (let j = 0; j < sortedArray.length - 1 - i; j++) {
+                    if (sortedArray[j] < sortedArray[j + 1]) {
+                        let temp = sortedArray[j];
+                        sortedArray[j] = sortedArray[j + 1];
+                        sortedArray[j + 1] = temp;
+                    }
+                }
+            }
+            return sortedArray;
+        }
+
+        // 使用两种方法进行排序并输出结果
+        var sortedUsingSelectionSort = sortUsingSelectionSort(numberList);
+        var sortedUsingBubbleSort = sortUsingBubbleSort(numberList);
+
+        document.write('使用选择排序算法排序:', sortedUsingSelectionSort);
+        document.write('<br>');
+        document.write('使用冒泡排序算法排序:', sortedUsingBubbleSort);
+    </script>
+</body>
+</html>

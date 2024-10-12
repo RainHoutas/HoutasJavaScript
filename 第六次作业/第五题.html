@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [];
+        var student = ['乃陇', '贝利亚', '老八']
+        var classd = ['语文', '数学', '英语', '不写作业课'];
+        for (var i = 0; i < student.length; i++) {
+            alert("请输入" + student[i] + "的成绩");
+            for (var j = 0; j < classd.length; j++) {
+                var score = prompt("请输入" + classd[j] + "的成绩");
+                arr.push(score);
+            }
+        }
+        for (var i = 0; i < student.length; i++) {
+            var sum = 0;
+            for (var j = 0; j < classd.length; j++) {
+                sum += parseInt(arr[i * classd.length + j]);
+            }
+            alert(student[i] + "的总成绩为" + sum);
+            alert(student[i] + "的平均成绩为" + sum / classd.length);
+            alert(student[i] + "语文："+arr[i*classd.length+0]+"数学："+arr[i*classd.length+1]+"英语："+arr[i*classd.length+2]+"不写作业课："+arr[i*classd.length+3]);
+        }
+    </script>
+</body>
+</html>
