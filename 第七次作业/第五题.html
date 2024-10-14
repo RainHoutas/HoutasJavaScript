@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function toggleCase() {
+            // 获取输入框的值
+            let inputText = document.getElementById('inputText').value;
+            // 切换大小写
+            let toggledText = inputText.split('').map(char => {
+                if (char === char.toUpperCase()) {
+                    return char.toLowerCase();
+                } else {
+                    return char.toUpperCase();
+                }
+            }).join('');
+            // 将结果显示在输出框中
+            document.getElementById('outputText').value = toggledText;
+        }
+    </script>
+</head>
+<body>
+    <label for="inputText">输入文本:</label>
+    <input type="text" id="inputText">
+    <button onclick="toggleCase()">切换大小写</button>
+    <br>
+    <label for="outputText">输出文本:</label>
+    <input type="text" id="outputText" readonly>
+</body>
+</html>

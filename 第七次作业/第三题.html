@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建函数求任意个数的最大值
+        function findMax(...numbers) {
+            if (numbers.length === 0) {
+                return undefined; // 如果没有传入任何参数，返回 undefined
+            }
+            let max = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] > max) {
+                    max = numbers[i];
+                }
+            }
+            return max;
+        }
+
+        // 调用函数并输出结果
+        var num = prompt('请输入任意个数，用逗号隔开');
+        document.write('最大值为：', findMax(...num.split(',')));
+    </script>
+</body>
+</html>

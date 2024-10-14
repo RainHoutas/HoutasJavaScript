@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 自定义排序函数（选择排序）
+        function customSort(arr) {
+            let sortedArray = arr.slice();
+            for (let i = 0; i < sortedArray.length - 1; i++) {
+                let maxIndex = i;
+                for (let j = i + 1; j < sortedArray.length; j++) {
+                    if (sortedArray[j] > sortedArray[maxIndex]) {
+                        maxIndex = j;
+                    }
+                }
+                if (maxIndex !== i) {
+                    let temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[maxIndex];
+                    sortedArray[maxIndex] = temp;
+                }
+            }
+            return sortedArray;
+        }
+
+        // 定义数组
+        var numberList = [35, 23, 30, 40, 12, 18, 21, 15, 49, 8, 37, 10];
+
+        // 调用自定义排序函数
+        var sortedList = customSort(numberList);
+
+        // 输出结果
+        document.write('排序前：', numberList);
+        document.write('<br>');
+        document.write('排序后：', sortedList);
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findCombinations() {
+            let results = [];
+            for (let a = 1; a <= 9; a++) {
+                for (let b = 0; b <= 9; b++) {
+                    for (let c = 1; c <= 9; c++) {
+                        let abc = a * 100 + b * 10 + c;
+                        let cba = c * 100 + b * 10 + a;
+                        if (abc + cba === 1333) {
+                            results.push({a, b, c});
+                        }
+                    }
+                }
+            }
+            return results;
+        }
+
+        let combinations = findCombinations();
+        combinations.forEach(combination => {
+            document.write(`a: ${combination.a}, b: ${combination.b}, c: ${combination.c}<br>`);
+        });
+    </script>
+</body>
+</html>
