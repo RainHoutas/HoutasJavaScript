@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器</title>
+    <style>
+        .calculator {
+            width: 200px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .calculator input {
+            width: 180px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .calculator button {
+            width: 40px;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="num1" placeholder="输入第一个数">
+        <input type="text" id="num2" placeholder="输入第二个数">
+        <br>
+        <button onclick="calculate('add')">+</button>
+        <button onclick="calculate('subtract')">-</button>
+        <button onclick="calculate('multiply')">*</button>
+        <button onclick="calculate('divide')">/</button>
+        <br>
+        <input type="text" id="result" placeholder="结果" readonly>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = '请输入有效的整数';
+            } else {
+                switch (operation) {
+                    case 'add':
+                        result = num1 + num2;
+                        break;
+                    case 'subtract':
+                        result = num1 - num2;
+                        break;
+                    case 'multiply':
+                        result = num1 * num2;
+                        break;
+                    case 'divide':
+                        if (num2 === 0) {
+                            result = '除数不能为零';
+                        } else {
+                            result = num1 / num2;
+                        }
+                        break;
+                    default:
+                        result = '无效的操作';
+                }
+            }
+
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+</html>

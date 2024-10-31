@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学运算</title>
+    <script>
+        // 定义一个函数来执行数学运算
+        function calculate(num1, num2, callback) {
+            return callback(num1, num2);
+        }
+
+        // 定义一些回调函数来执行具体的运算
+        function add(a, b) {
+            return a + b;
+        }
+
+        function subtract(a, b) {
+            return a - b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            if (b === 0) {
+                return '除数不能为零';
+            }
+            return a / b;
+        }
+
+        // 示例调用
+        document.addEventListener('DOMContentLoaded', function() {
+            let num1 = 10;
+            let num2 = 5;
+
+            console.log('加法:', calculate(num1, num2, add)); // 输出: 加法: 15
+            console.log('减法:', calculate(num1, num2, subtract)); // 输出: 减法: 5
+            console.log('乘法:', calculate(num1, num2, multiply)); // 输出: 乘法: 50
+            console.log('除法:', calculate(num1, num2, divide)); // 输出: 除法: 2
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

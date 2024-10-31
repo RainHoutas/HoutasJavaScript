@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序示例</title>
+    <script>
+        // 定义一个通用的排序函数
+        function sortArray(arr, compareFunction) {
+            return arr.sort(compareFunction);
+        }
+
+        // 定义一些比较函数
+        function ascending(a, b) {
+            return a - b;
+        }
+
+        function descending(a, b) {
+            return b - a;
+        }
+
+        // 示例调用
+        document.addEventListener('DOMContentLoaded', function() {
+            let numberList = [35, 23, 30, 40, 12, 18, 21, 15, 49, 8, 37, 10];
+
+            // 使用升序排序
+            let sortedAscending = sortArray(numberList.slice(), ascending);
+            console.log('升序排序:', sortedAscending); // 输出: 升序排序: [8, 10, 12, 15, 18, 21, 23, 30, 35, 37, 40, 49]
+
+            // 使用降序排序
+            let sortedDescending = sortArray(numberList.slice(), descending);
+            console.log('降序排序:', sortedDescending); // 输出: 降序排序: [49, 40, 37, 35, 30, 23, 21, 18, 15, 12, 10, 8]
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

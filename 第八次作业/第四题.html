@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 创建一个判断素数的函数
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // 按钮单击事件处理函数
+        function checkPrime() {
+            // 获取输入框的值
+            let inputNumber = parseInt(document.getElementById('inputNumber').value);
+            let resultText = '';
+
+            // 判断是否为质数
+            if (isNaN(inputNumber) || inputNumber <= 0) {
+                resultText = '请输入一个正整数';
+            } else if (isPrime(inputNumber)) {
+                resultText = `${inputNumber} 是质数`;
+            } else {
+                resultText = `${inputNumber} 不是质数`;
+            }
+
+            // 将结果显示在输出框中
+            document.getElementById('result').value = resultText;
+        }
+    </script>
+</head>
+<body>
+    <label for="inputNumber">输入正整数:</label>
+    <input type="text" id="inputNumber">
+    <button onclick="checkPrime()">判断是否为质数</button>
+    <br>
+    <label for="result">结果:</label>
+    <input type="text" id="result" readonly>
+</body>
+</html>
