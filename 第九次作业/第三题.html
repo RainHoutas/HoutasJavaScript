@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义数学对象</title>
+</head>
+<body>
+    <script>
+        // 封装自定义的数学对象
+        const MyMath = (function() {
+            const PI = 3.141592653589793;
+
+            function max(...numbers) {
+                if (numbers.length === 0) return undefined;
+                return numbers.reduce((max, num) => (num > max ? num : max), numbers[0]);
+            }
+
+            function min(...numbers) {
+                if (numbers.length === 0) return undefined;
+                return numbers.reduce((min, num) => (num < min ? num : min), numbers[0]);
+            }
+
+            return {
+                PI: PI,
+                max: max,
+                min: min
+            };
+        })();
+
+        // 示例调用
+        console.log('PI:', MyMath.PI); // 输出: PI: 3.141592653589793
+        console.log('最大值:', MyMath.max(1, 2, 3, 4, 5)); // 输出: 最大值: 5
+        console.log('最小值:', MyMath.min(1, 2, 3, 4, 5)); // 输出: 最小值: 1
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义Person构造函数
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        // 在Person的原型上添加一个方法
+        Person.prototype.greet = function() {
+            console.log(`你好，我是${this.name}，我${this.age}岁了，我是${this.gender}。`);
+        };
+
+        // 创建Person对象的实例
+        const person1 = new Person('张三', 18, '男');
+        const person2 = new Person('李四', 20, '女');
+
+        // 调用实例的方法
+        person1.greet(); // 输出: 你好，我是张三，我18岁了，我是男。
+        person2.greet(); // 输出: 你好，我是李四，我20岁了，我是女。
+    </script>
+</body>
+</html>

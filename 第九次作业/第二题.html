@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数生成器</title>
+</head>
+<body>
+    <h1>随机生成的数是：<span id="randomNumber"></span></h1>
+
+    <script>
+        // 使用闭包生成并保持随机数
+        const getRandomNumber = (function() {
+            const randomNumber = Math.floor(Math.random() * 10) + 1;
+            return function() {
+                return randomNumber;
+            };
+        })();
+
+        // 显示随机数
+        document.getElementById('randomNumber').textContent = getRandomNumber();
+    </script>
+</body>
+</html>

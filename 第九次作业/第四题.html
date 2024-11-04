@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const Student1 = (function() {
+        const name = '张三';
+        const age = 18;
+        const id = '1145141919810';
+        function shuchu(){
+            console.log('姓名：',name);
+            console.log('年龄：',age);
+            console.log('学号：',id);
+        }
+        return {
+            shuchu:shuchu
+        };
+    })();
+    Student1.shuchu();
+    </script>
+</body>
+</html>
