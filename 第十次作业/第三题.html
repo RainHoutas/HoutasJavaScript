@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜数字游戏</h1>
+    <p>请输入一个1到100之间的数字：</p>
+    <input type="number" id="guessInput" min="1" max="100">
+    <button onclick="makeGuess()">猜测</button>
+    <p id="result"></p>
+
+    <script>
+        // 生成一个1到100之间的随机数
+        const targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function makeGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            const resultElement = document.getElementById('result');
+            attempts++;
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                resultElement.textContent = '请输入一个1到100之间的有效数字。';
+            } else if (guess < targetNumber) {
+                resultElement.textContent = '太小了，请再试一次。';
+            } else if (guess > targetNumber) {
+                resultElement.textContent = '太大了，请再试一次。';
+            } else {
+                resultElement.textContent = `恭喜你，猜对了！你用了${attempts}次猜对了数字${targetNumber}。`;
+            }
+        }
+    </script>
+</body>
+</html>

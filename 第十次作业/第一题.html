@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证 typeof 和 instanceof</title>
+</head>
+<body>
+    <h1>验证 typeof 和 instanceof</h1>
+    <div id="results"></div>
+
+    <script>
+        // 定义一个构造函数
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // 创建一个 Person 对象的实例
+        const person = new Person('张三', 18);
+
+        // 验证 typeof 运算符
+        const typeofResults = `
+            <p>typeof person: ${typeof person}</p>
+            <p>typeof person.name: ${typeof person.name}</p>
+            <p>typeof person.age: ${typeof person.age}</p>
+        `;
+
+        // 验证 instanceof 运算符
+        const instanceofResults = `
+            <p>person instanceof Person: ${person instanceof Person}</p>
+            <p>person instanceof Object: ${person instanceof Object}</p>
+        `;
+
+        // 验证基本类型
+        const num = 42;
+        const str = 'Hello';
+        const bool = true;
+        const obj = {};
+        const arr = [];
+        const func = function() {};
+
+        const basicTypeResults = `
+            <p>typeof num: ${typeof num}</p>
+            <p>typeof str: ${typeof str}</p>
+            <p>typeof bool: ${typeof bool}</p>
+            <p>typeof obj: ${typeof obj}</p>
+            <p>typeof arr: ${typeof arr}</p>
+            <p>typeof func: ${typeof func}</p>
+            <p>arr instanceof Array: ${arr instanceof Array}</p>
+            <p>arr instanceof Object: ${arr instanceof Object}</p>
+            <p>func instanceof Function: ${func instanceof Function}</p>
+            <p>func instanceof Object: ${func instanceof Object}</p>
+        `;
+
+        // 将结果显示在网页上
+        document.getElementById('results').innerHTML = `
+            <h2>typeof 运算符</h2>
+            ${typeofResults}
+            <h2>instanceof 运算符</h2>
+            ${instanceofResults}
+            <h2>基本类型验证</h2>
+            ${basicTypeResults}
+        `;
+    </script>
+</body>
+</html>

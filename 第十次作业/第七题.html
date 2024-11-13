@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成四位随机验证码</title>
+</head>
+<body>
+    <h1>生成四位随机验证码</h1>
+    <div id="captcha"></div>
+    <button onclick="generateCaptcha()">生成验证码</button>
+
+    <script>
+        function generateCaptcha() {
+            const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let captcha = '';
+            for (let i = 0; i < 4; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                captcha += characters[randomIndex];
+            }
+            document.getElementById('captcha').textContent = captcha;
+        }
+
+        // 初次加载时生成验证码
+        generateCaptcha();
+    </script>
+</body>
+</html>

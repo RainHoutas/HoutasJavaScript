@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建 Person 对象</title>
+</head>
+<body>
+    <h1>创建 Person 对象</h1>
+    <div id="results"></div>
+
+    <script>
+        // 定义 Person 构造函数
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        // 在 Person 的原型上添加一个方法
+        Person.prototype.greet = function() {
+            return `你好，我是${this.name}，我${this.age}岁了，我是${this.gender}。`;
+        };
+
+        // 创建 Person 对象的实例
+        const person1 = new Person('张三', 18, '男');
+        const person2 = new Person('李四', 20, '女');
+
+        // 显示 Person 对象的属性和方法结果
+        const results = `
+            <p>person1.name: ${person1.name}</p>
+            <p>person1.age: ${person1.age}</p>
+            <p>person1.gender: ${person1.gender}</p>
+            <p>person1.greet(): ${person1.greet()}</p>
+            <br>
+            <p>person2.name: ${person2.name}</p>
+            <p>person2.age: ${person2.age}</p>
+            <p>person2.gender: ${person2.gender}</p>
+            <p>person2.greet(): ${person2.greet()}</p>
+        `;
+
+        // 将结果显示在网页上
+        document.getElementById('results').innerHTML = results;
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证静态成员和实例成员的区别</title>
+</head>
+<body>
+    <h1>验证静态成员和实例成员的区别</h1>
+    <div id="results"></div>
+
+    <script>
+        // 定义Person类
+        class Person {
+            // 构造函数
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            // 实例方法
+            greet() {
+                return `你好，我是${this.name}，我${this.age}岁了。`;
+            }
+
+            // 静态方法
+            static species() {
+                return 'Homo sapiens';
+            }
+        }
+
+        // 创建Person对象的实例
+        const person1 = new Person('张三', 18);
+
+        // 验证实例成员
+        const instanceResults = `
+            <p>person1.name: ${person1.name}</p>
+            <p>person1.age: ${person1.age}</p>
+            <p>person1.greet(): ${person1.greet()}</p>
+        `;
+
+        // 验证静态成员
+        const staticResults = `
+            <p>Person.species(): ${Person.species()}</p>
+        `;
+
+        // 验证实例不能访问静态成员
+        let instanceCannotAccessStatic;
+        try {
+            instanceCannotAccessStatic = person1.species();
+        } catch (error) {
+            instanceCannotAccessStatic = '实例不能访问静态成员';
+        }
+
+        const instanceCannotAccessStaticResults = `
+            <p>person1.species(): ${instanceCannotAccessStatic}</p>
+        `;
+
+        // 将结果显示在网页上
+        document.getElementById('results').innerHTML = `
+            <h2>实例成员</h2>
+            ${instanceResults}
+            <h2>静态成员</h2>
+            ${staticResults}
+            <h2>实例不能访问静态成员</h2>
+            ${instanceCannotAccessStaticResults}
+        `;
+    </script>
+</body>
+</html>
