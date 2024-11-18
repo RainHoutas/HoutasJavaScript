@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示当前时间</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #datetime {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>当前时间</h1>
+    <div id="datetime"></div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1; // 月份从0开始，需要加1
+            const date = now.getDate();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const day = now.getDay();
+            const daysOfWeek = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+            const formattedDateTime = `${year}年${month}月${date}日 ${hours}点${minutes}分${seconds}秒 (${daysOfWeek[day]})，不欢迎您的到访~`;
+            document.getElementById('datetime').textContent = formattedDateTime;
+        }
+
+        // 初次加载时显示当前时间
+        updateDateTime();
+        // 每秒更新一次时间
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>

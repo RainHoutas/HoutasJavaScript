@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时效果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #countdown {
+            font-size: 48px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>倒计时效果</h1>
+    <input type="number" id="minutes" placeholder="输入分钟数">
+    <button onclick="startCountdown()">开始倒计时</button>
+    <div id="countdown"></div>
+
+    <script>
+        let countdownInterval;
+
+        function startCountdown() {
+            const minutes = parseInt(document.getElementById('minutes').value);
+            if (isNaN(minutes) || minutes <= 0) {
+                alert('请输入一个有效的分钟数');
+                return;
+            }
+
+            const endTime = Date.now() + minutes * 60 * 1000;
+            updateCountdown(endTime);
+
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            countdownInterval = setInterval(() => {
+                updateCountdown(endTime);
+            }, 1000);
+        }
+
+        function updateCountdown(endTime) {
+            const now = Date.now();
+            const timeLeft = endTime - now;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').textContent = '倒计时结束';
+                return;
+            }
+
+            const minutes = Math.floor(timeLeft / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = `${minutes}分${seconds}秒`;
+        }
+    </script>
+</body>
+</html>

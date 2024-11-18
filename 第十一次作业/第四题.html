@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统计出现次数最多的字符</title>
+</head>
+<body>
+    <h1>统计出现次数最多的字符</h1>
+    <input type="text" id="inputString" placeholder="输入字符串">
+    <button onclick="findMostFrequentChar()">统计</button>
+    <div id="result"></div>
+
+    <script>
+        function findMostFrequentChar() {
+            const str = document.getElementById('inputString').value;
+            if (!str) {
+                alert('请输入一个字符串');
+                return;
+            }
+
+            const charCount = {};
+            for (let char of str) {
+                if (charCount[char]) {
+                    charCount[char]++;
+                } else {
+                    charCount[char] = 1;
+                }
+            }
+
+            let maxChar = '';
+            let maxCount = 0;
+            for (let char in charCount) {
+                if (charCount[char] > maxCount) {
+                    maxCount = charCount[char];
+                    maxChar = char;
+                }
+            }
+
+            document.getElementById('result').textContent = `出现次数最多的字符是 '${maxChar}'，出现了 ${maxCount} 次`;
+        }
+    </script>
+</body>
+</html>
