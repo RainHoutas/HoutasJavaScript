@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机选择不重复的10个数</title>
+</head>
+<body>
+    <h1>随机选择不重复的10个数</h1>
+    <div id="result"></div>
+
+    <script>
+        function getRandomNumbers() {
+            const numbers = [];
+            while (numbers.length < 10) {
+                const randomNum = Math.floor(Math.random() * 91) + 10; // 生成10到100之间的随机数
+                if (!numbers.includes(randomNum)) {
+                    numbers.push(randomNum);
+                }
+            }
+            return numbers;
+        }
+
+        const randomNumbers = getRandomNumbers();
+        document.getElementById('result').textContent = randomNumbers.join(', ');
+    </script>
+</body>
+</html>

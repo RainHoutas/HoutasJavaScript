@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根据日期和时间显示不同问候语</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #greeting {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>根据日期和时间显示不同问候语</h1>
+    <div id="greeting"></div>
+
+    <script>
+        function getGreeting() {
+            const now = new Date();
+            const hours = now.getHours();
+            let greeting;
+
+            if (hours < 12) {
+                greeting = '早上好';
+            } else if (hours < 18) {
+                greeting = '下午好';
+            } else {
+                greeting = '晚上好';
+            }
+
+            return greeting;
+        }
+
+        document.getElementById('greeting').textContent = getGreeting();
+    </script>
+</body>
+</html>

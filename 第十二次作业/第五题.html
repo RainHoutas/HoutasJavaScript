@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型继承和混入继承</title>
+</head>
+<body>
+    <h1>原型继承和混入继承</h1>
+    <div id="results"></div>
+
+    <script>
+        // 定义 Person 构造函数
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // 在 Person 的原型上添加方法
+        Person.prototype.greet = function() {
+            return `你好，我是${this.name}，我${this.age}岁了。`;
+        };
+
+        // 定义 Student 构造函数
+        function Student(name, age, grade) {
+            Person.call(this, name, age); // 调用 Person 构造函数，继承属性
+            this.grade = grade;
+        }
+
+        // 原型继承
+        Student.prototype = Object.create(Person.prototype);
+        Student.prototype.constructor = Student;
+
+        // 在 Student 的原型上添加方法
+        Student.prototype.study = function() {
+            return `${this.name} 正在学习。`;
+        };
+
+        // 混入继承
+        const mixin = {
+            play: function() {
+                return `${this.name} 正在玩。`;
+            }
+        };
+
+        // 将混入的方法添加到 Student 的原型上
+        Object.assign(Student.prototype, mixin);
+
+        // 创建 Student 对象的实例
+        const student1 = new Student('张三', 18, '高三');
+        const student2 = new Student('李四', 20, '大一');
+
+        // 测试实例方法和属性
+        const results = `
+            <p>student1.name: ${student1.name}</p>
+            <p>student1.age: ${student1.age}</p>
+            <p>student1.grade: ${student1.grade}</p>
+            <p>student1.greet(): ${student1.greet()}</p>
+            <p>student1.study(): ${student1.study()}</p>
+            <p>student1.play(): ${student1.play()}</p>
+            <br>
+            <p>student2.name: ${student2.name}</p>
+            <p>student2.age: ${student2.age}</p>
+            <p>student2.grade: ${student2.grade}</p>
+            <p>student2.greet(): ${student2.greet()}</p>
+            <p>student2.study(): ${student2.study()}</p>
+            <p>student2.play(): ${student2.play()}</p>
+        `;
+
+        // 将结果显示在网页上
+        document.getElementById('results').innerHTML = results;
+    </script>
+</body>
+</html>
