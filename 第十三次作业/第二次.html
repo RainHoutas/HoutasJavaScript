@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证 innerText、innerHTML 和 textContent</title>
+</head>
+<body>
+    <div id="testDiv">
+        <p>这是一个 <span>嵌套</span> 元素。<br>我是帅哥</p>
+    </div>
+    <button id="checkButton">检查属性</button>
+
+    <script>
+        document.getElementById('checkButton').addEventListener('click', function() {
+            var testDiv = document.getElementById('testDiv');
+
+            // 获取属性值
+            var innerTextValue = testDiv.innerText;
+            var innerHTMLValue = testDiv.innerHTML;
+            var textContentValue = testDiv.textContent;
+
+            // 显示属性值
+            alert('innerText: ' + innerTextValue);
+            alert('innerHTML: ' + innerHTMLValue);
+            alert('textContent: ' + textContentValue);
+
+        });
+    </script>
+</body>
+</html>

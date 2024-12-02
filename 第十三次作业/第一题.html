@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素和注册事件示例</title>
+</head>
+<body>
+    <div id="myDiv">点击我</div>
+
+    <script>
+        // 使用 getElementById 获取元素
+        var divElement = document.getElementById('myDiv');
+        divElement.addEventListener('click', function() {
+            alert('你点击了 div 元素');
+        });
+    </script>
+</body>
+</html>

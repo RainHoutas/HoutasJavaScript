@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="testDiv" style="width: 10px; height: 20px; background-color: blue;">
+    888
+    </div>
+    <button id="checkButton">大变化</button>
+    <script>
+        var testDiv = document.getElementById('testDiv');
+        var checkButton = document.getElementById('checkButton');
+        checkButton.addEventListener('click', function() {
+            var currentWidth = testDiv.offsetWidth;
+            var currentHeight = testDiv.offsetHeight;
+            testDiv.style.width = (currentWidth + 100) + 'px';
+            testDiv.style.height = (currentHeight + 200) + 'px';
+        });
+    </script>
+</body>
+</html>

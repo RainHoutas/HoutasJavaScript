@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时示例</title>
+</head>
+<body>
+    <p id="countdown" style="font-size: large;"></p>
+    <button id="myButton" style="display: none;">点击我</button>
+    <script>
+        var countdownElement = document.getElementById('countdown');
+        var buttonElement = document.getElementById('myButton');
+        var countdown = 10; // 倒计时秒数
+
+        function updateCountdown() {
+            if (countdown > 0) {
+                countdownElement.innerText = '倒计时: ' + countdown + ' 秒';
+                countdown--;
+            } else {
+                clearInterval(interval);
+                countdownElement.innerText = '倒计时结束';
+                buttonElement.style.display = 'block'; // 显示按钮
+            }
+        }
+
+        var interval = setInterval(updateCountdown, 1000); // 每秒更新一次倒计时
+    </script>
+</body>
+</html>

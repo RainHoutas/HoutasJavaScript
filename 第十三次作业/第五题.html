@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="checkButton">转换大小写</button>
+    <p style="font-size: large;">结果：</p>
+    <p id="result" style="font-size: large;"></p>
+    <script>
+        var userInput = prompt("输入字符串，我来大小写转换");
+        var result = document.getElementById('result');
+        result.innerText = userInput;
+        var checkButton = document.getElementById('checkButton');
+        checkButton.addEventListener('click', function() {
+            var newText = '';
+            for (var i = 0; i < result.innerText.length; i++) {
+                var char = result.innerText[i];
+                if (char === char.toUpperCase()) {
+                    newText += char.toLowerCase();
+                } else {
+                    newText += char.toUpperCase();
+                }
+            }
+            result.innerText = newText;
+        });
+    </script>
+</body>
+</html>

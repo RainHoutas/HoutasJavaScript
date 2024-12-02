@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img"> 
+    <script>
+        var time= new Date();
+        var hour = time.getHours();
+        var img = document.getElementById('img');
+        if(hour>=6 && hour<12){
+            img.src = "picture/早上好.png";
+        }
+        else if(hour>=12 && hour<18){
+            img.src = "picture/中午好.png";
+        }
+        else{
+            img.src = "picture/晚上好.png";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="result"></a>
+    <script>
+        function getRandomNumbers(count, min, max) {
+            const numbers = new Set();
+            while (numbers.size < count) {
+                const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+                numbers.add(randomNum);
+            }
+            return Array.from(numbers);
+        }
+
+        const randomNumbers = getRandomNumbers(10, 1, 50);
+        document.getElementById('result').innerText = randomNumbers.join(', ');
+    </script>
+</body>
+</html>
