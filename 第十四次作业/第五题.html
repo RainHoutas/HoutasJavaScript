@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐藏密码示例</title>
+</head>
+<body>
+    <div>
+        <p>设置密码：</p>
+        <input id="passwordInput" type="password">
+        <label>
+            <input type="checkbox" id="togglePassword"> 显示密码
+        </label>
+    </div>
+    <script>
+        var passwordInput = document.getElementById('passwordInput');
+        var togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('change', function() {
+            if (togglePassword.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
+</body>
+</html>

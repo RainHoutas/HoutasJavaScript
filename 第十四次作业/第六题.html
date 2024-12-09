@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" placeholder="我是输入框">
+    <script>
+        var input =document.getElementById('input');
+        input.addEventListener('focus',function(){
+            input.placeholder='请输入';
+        });
+        input.addEventListener('blur',function(){
+            input.placeholder='为什么不输入？你在赣神魔';
+        });
+
+    </script>
+</body>
+</html>

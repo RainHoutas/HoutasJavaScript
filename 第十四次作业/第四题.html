@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>设置密码：</p>
+        <input id="input" type="password">
+        <p id="p">请输入</p>
+        <script>
+            var input = document.getElementById('input');
+            var p = document.getElementById('p');
+            
+            input.addEventListener('blur',function(){
+                const inputv= input.value;
+                if(inputv.length<6||inputv.length>16){
+                    p.textContent='长度不对哦';
+                    p.style.color='red';
+                }
+                else{
+                    p.textContent='输入合法啊';
+                    p.style.color='green';
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

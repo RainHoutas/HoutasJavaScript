@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList 示例</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">点击我切换高亮</div>
+    <button id="addClassButton">添加高亮</button>
+    <button id="removeClassButton">移除高亮</button>
+    <script>
+        var myDiv = document.getElementById('myDiv');
+        var addClassButton = document.getElementById('addClassButton');
+        var removeClassButton = document.getElementById('removeClassButton');
+
+        // 添加高亮类
+        addClassButton.addEventListener('click', function() {
+            myDiv.classList.add('highlight');
+        });
+
+        // 移除高亮类
+        removeClassButton.addEventListener('click', function() {
+            myDiv.classList.remove('highlight');
+        });
+
+        // 点击 div 切换高亮类
+        myDiv.addEventListener('click', function() {
+            myDiv.classList.toggle('highlight');
+        });
+    </script>
+</body>
+</html>

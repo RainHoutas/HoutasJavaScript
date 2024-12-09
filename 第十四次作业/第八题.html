@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute 示例</title>
+</head>
+<body>
+    <div id="myDiv">这是一个 div 元素</div>
+    <button id="setAttributeButton">设置自定义属性</button>
+    <button id="getAttributeButton">获取自定义属性</button>
+    <button id="removeAttributeButton">移除自定义属性</button>
+    <p id="output"></p>
+
+    <script>
+        var myDiv = document.getElementById('myDiv');
+        var output = document.getElementById('output');
+
+        // 设置自定义属性
+        document.getElementById('setAttributeButton').addEventListener('click', function() {
+            myDiv.setAttribute('data-custom', '自定义属性值');
+            output.textContent = '已设置自定义属性';
+        });
+
+        // 获取自定义属性
+        document.getElementById('getAttributeButton').addEventListener('click', function() {
+            var customValue = myDiv.getAttribute('data-custom');
+            output.textContent = '自定义属性值: ' + customValue;
+        });
+
+        // 移除自定义属性
+        document.getElementById('removeAttributeButton').addEventListener('click', function() {
+            myDiv.removeAttribute('data-custom');
+            output.textContent = '已移除自定义属性';
+        });
+    </script>
+</body>
+</html>
