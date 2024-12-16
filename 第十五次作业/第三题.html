@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点操作示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>节点操作示例</h1>
+    <input type="text" id="itemInput" placeholder="输入新项">
+    <button onclick="addItem()">添加</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        function addItem() {
+            const input = document.getElementById('itemInput');
+            const itemText = input.value.trim();
+            if (itemText === '') {
+                alert('请输入内容');
+                return;
+            }
+
+            const li = document.createElement('li');
+            li.textContent = itemText;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '删除';
+            deleteButton.onclick = function() {
+                li.remove();
+            };
+
+            li.appendChild(deleteButton);
+            document.getElementById('itemList').appendChild(li);
+
+            input.value = '';
+        }
+    </script>
+</body>
+</html>

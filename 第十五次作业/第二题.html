@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab栏切换</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+        }
+        .tab.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tab栏切换</h1>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('tab1')">Tab 1</div>
+        <div class="tab" onclick="showTab('tab2')">Tab 2</div>
+        <div class="tab" onclick="showTab('tab3')">Tab 3</div>
+    </div>
+    <div id="tab1" class="content active">这是Tab 1的内容</div>
+    <div id="tab2" class="content">这是Tab 2的内容</div>
+    <div id="tab3" class="content">这是Tab 3的内容</div>
+
+    <script>
+        function showTab(tabId) {
+            // 移除所有Tab的active类
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // 隐藏所有内容
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // 显示当前Tab的内容并添加active类
+            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作自定义属性</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #myElement {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>操作自定义属性</h1>
+    <button onclick="setAttribute()">设置自定义属性</button>
+    <button onclick="getAttribute()">获取自定义属性</button>
+    <button onclick="removeAttribute()">移除自定义属性</button>
+    <div id="myElement">这是一个元素</div>
+    <div id="result"></div>
+
+    <script>
+        function setAttribute() {
+            const element = document.getElementById('myElement');
+            element.setAttribute('data-custom', '自定义属性值');
+            document.getElementById('result').textContent = '已设置自定义属性: data-custom="自定义属性值"';
+        }
+
+        function getAttribute() {
+            const element = document.getElementById('myElement');
+            const customAttr = element.getAttribute('data-custom');
+            document.getElementById('result').textContent = customAttr ? `获取到的自定义属性值: ${customAttr}` : '自定义属性未设置';
+        }
+
+        function removeAttribute() {
+            const element = document.getElementById('myElement');
+            element.removeAttribute('data-custom');
+            document.getElementById('result').textContent = '已移除自定义属性: data-custom';
+        }
+    </script>
+</body>
+</html>
