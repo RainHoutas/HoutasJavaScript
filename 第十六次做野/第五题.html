@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态电子时钟</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #clock {
+            font-size: 48px;
+            margin-top: 20px;
+        }
+        #pauseButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>动态电子时钟</h1>
+    <div id="clock"></div>
+    <button id="pauseButton" onclick="toggleClock()">暂停</button>
+
+    <script>
+        let clockInterval;
+        let isPaused = false;
+
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = currentTime;
+        }
+
+        function startClock() {
+            clockInterval = setInterval(updateClock, 1000);
+            updateClock(); // 初次加载时立即显示时间
+        }
+
+        function stopClock() {
+            clearInterval(clockInterval);
+        }
+
+        function toggleClock() {
+            if (isPaused) {
+                startClock();
+                document.getElementById('pauseButton').textContent = '暂停';
+            } else {
+                stopClock();
+                document.getElementById('pauseButton').textContent = '继续';
+            }
+            isPaused = !isPaused;
+        }
+
+        startClock();
+    </script>
+</body>
+</html>

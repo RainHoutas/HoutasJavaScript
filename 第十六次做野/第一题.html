@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>编程我有4不学</p>
+    <p>为什么不学python，因为他广，诗歌人都会，我还学什么</p>
+    <p>为什么不学c语言，因为他老，他复杂我学不会</p>
+    <button id="botton">全部删掉</button>
+    <script>
+        var botton=document.getElementById('botton');
+        var p = document.querySelectorAll('p');
+        var i=0;
+        botton.onclick=function(){
+            if(i<=30){
+                p.forEach(function(p){
+                p.textContent=" ";
+                i++;
+                console.log(i);
+        
+            })
+            }
+            else{
+                p.forEach(function(p){
+                    p.textContent="宇宙热寂2042，宇宙热寂2042，宇宙热寂20420";
+                })
+            }
+            
+        }
+    </script>
+</body>
+</html>
