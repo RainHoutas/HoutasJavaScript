@@ -7,9 +7,9 @@
 </head>
 <body>
     <script>
-        var arr = [[1,28,3,46.1],[6,5],[7,90,8.3],[8,92,6.9,12]]
+        var arr = [[1,28,3,46.1],[6,5],[7,92,8.3],[8,90,6.9,12]];
+        var biggist = arr[0][0];
         for (var i = 0; i < arr.length; i++) {
-            var biggist = arr[i][0];
             for (var j = 0; j < arr[i].length; j++) {
                 if (arr[i][j] > biggist) {
                     biggist = arr[i][j];
